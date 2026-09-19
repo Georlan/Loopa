@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#07101d" />
+  <meta name="theme-color" content="#f4efe4" />
   <meta name="description" content="Loopa organiza, antecipa e revela seus gastos recorrentes." />
   <title>Loopa — seu radar de assinaturas</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -39,14 +39,14 @@
             <div class="mobile-brand-row">
               <a class="mobile-brand nav-link" href="#inicio" data-screen="inicio" aria-label="Loopa, início">
                 <span class="brand-mark small" aria-hidden="true"><span></span></span>
-                <strong>Loopa</strong>
+                <strong>Loopa</strong><span class="brand-scribble" aria-hidden="true"></span>
               </a>
               <button class="icon-button" data-modal-open="addModal" aria-label="Nova assinatura">+</button>
             </div>
             <div class="headline-row">
               <div>
                 <p class="eyebrow" id="todayLabel">sábado, 19 de setembro</p>
-                <h1>Veja o que está prestes a acontecer.</h1>
+                <h1>Veja o que está prestes a acontecer.<span class="title-underline" aria-hidden="true"></span></h1>
               </div>
               <div class="desktop-actions">
                 <button class="button ghost" data-modal-open="importModal">Importar fatura</button>
@@ -56,7 +56,7 @@
           </header>
 
           <div class="home-content">
-            <article class="alert-hero">
+            <article class="alert-hero paper-card taped">
               <div class="hero-copy-wrap">
                 <span class="status-pill warning">Próximos 7 dias</span>
                 <p class="hero-kicker">Saídas recorrentes previstas</p>
@@ -70,7 +70,7 @@
             </article>
 
             <div class="quick-alerts">
-              <article class="insight-card danger">
+              <article class="insight-card note-card sticky-yellow danger">
                 <div class="insight-icon">!</div>
                 <div class="insight-text">
                   <span class="eyebrow">Atenção</span>
@@ -79,7 +79,7 @@
                 </div>
               </article>
 
-              <article class="insight-card">
+              <article class="insight-card note-card sticky-blue">
                 <div class="insight-icon">↑</div>
                 <div class="insight-text">
                   <span class="eyebrow">Mudança</span>
@@ -90,22 +90,22 @@
             </div>
 
             <div class="metrics-grid" aria-label="Resumo financeiro">
-              <article class="metric-card">
+              <article class="metric-card paper-scrap">
                 <span class="eyebrow">Por mês</span>
                 <strong id="monthlyTotal">R$ 438,20</strong>
                 <p>recorrências ativas</p>
               </article>
-              <article class="metric-card">
+              <article class="metric-card paper-scrap">
                 <span class="eyebrow">Por ano</span>
                 <strong id="yearlyTotal">R$ 5.258,40</strong>
                 <p>projeção atual</p>
               </article>
-              <article class="metric-card highlight">
+              <article class="metric-card paper-scrap highlight sticky-green">
                 <span class="eyebrow">Desperdício</span>
                 <strong id="wasteTotal">R$ 79,80/mês</strong>
                 <p>2 serviços em atenção</p>
               </article>
-              <article class="metric-card">
+              <article class="metric-card paper-scrap">
                 <span class="eyebrow">Economia</span>
                 <strong>R$ 214,70</strong>
                 <p>acumulada</p>
@@ -120,7 +120,7 @@
           <header class="screen-topbar compact">
             <div>
               <span class="eyebrow">Agenda financeira</span>
-              <h1>Calendário</h1>
+              <h1>Calendário<span class="title-underline" aria-hidden="true"></span></h1>
               <p class="screen-subtitle">Veja onde suas cobranças se concentram.</p>
             </div>
             <button class="icon-button mobile-only" data-modal-open="addModal" aria-label="Nova assinatura">+</button>
@@ -137,7 +137,7 @@
             </div>
           </div>
 
-          <article class="panel calendar-panel">
+          <article class="panel calendar-panel notebook-sheet">
             <div class="section-heading calendar-heading">
               <div>
                 <span class="eyebrow">Este mês</span>
@@ -163,7 +163,7 @@
           <header class="screen-topbar compact">
             <div>
               <span class="eyebrow">Seus serviços</span>
-              <h1>Assinaturas</h1>
+              <h1>Assinaturas<span class="title-underline" aria-hidden="true"></span></h1>
               <p class="screen-subtitle">Tudo que está no seu loop, em um só lugar.</p>
             </div>
             <button class="icon-button mobile-only" data-modal-open="addModal" aria-label="Nova assinatura">+</button>
@@ -174,7 +174,7 @@
             <button class="button primary" data-modal-open="addModal">+ Adicionar</button>
           </div>
 
-          <article class="panel subscriptions-panel">
+          <article class="panel subscriptions-panel notebook-sheet clipped">
             <div class="section-heading subscription-heading">
               <div>
                 <span class="eyebrow">Ativas</span>
@@ -192,18 +192,18 @@
           <header class="screen-topbar compact">
             <div>
               <span class="eyebrow">Análise</span>
-              <h1>Economia</h1>
+              <h1>Economia<span class="title-underline" aria-hidden="true"></span></h1>
               <p class="screen-subtitle">Onde a Loopa encontrou dinheiro que merece sua atenção.</p>
             </div>
           </header>
 
-          <article class="economy-hero">
+          <article class="economy-hero paper-card taped">
             <span class="eyebrow">Possível economia anual</span>
             <strong>R$ 981,60</strong>
             <p>com base nos serviços marcados como pouco usados ou prestes a renovar.</p>
           </article>
 
-          <article class="panel savings-main">
+          <article class="panel savings-main notebook-sheet">
             <div class="section-heading">
               <div>
                 <span class="eyebrow">Oportunidades</span>
@@ -236,7 +236,7 @@
             </div>
           </article>
 
-          <article class="panel unknown-card">
+          <article class="panel unknown-card sticky-pink">
             <div>
               <span class="status-pill neutral">Cobrança desconhecida</span>
               <h3>GOOGLE *SERVICES</h3>
@@ -265,7 +265,7 @@
   </nav>
 
   <div class="modal-backdrop hidden" id="addModal" role="dialog" aria-modal="true" aria-labelledby="addTitle">
-    <div class="modal">
+    <div class="modal paper-modal">
       <button class="modal-close" data-close="addModal" aria-label="Fechar">×</button>
       <span class="eyebrow">Cadastro manual</span>
       <h2 id="addTitle">Nova assinatura</h2>
@@ -293,7 +293,7 @@
   </div>
 
   <div class="modal-backdrop hidden" id="importModal" role="dialog" aria-modal="true" aria-labelledby="importTitle">
-    <div class="modal">
+    <div class="modal paper-modal">
       <button class="modal-close" data-close="importModal" aria-label="Fechar">×</button>
       <span class="eyebrow">Importação</span>
       <h2 id="importTitle">Encontrar assinaturas na fatura</h2>
@@ -308,7 +308,7 @@
   </div>
 
   <div class="onboarding-backdrop hidden" id="onboarding">
-    <section class="onboarding-card">
+    <section class="onboarding-card paper-modal">
       <div class="onboarding-progress"><span id="onboardingProgress"></span></div>
       <div id="onboardingContent"></div>
     </section>
