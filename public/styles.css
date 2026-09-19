@@ -95,7 +95,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .brand-mark {
   width: 32px;
   height: 32px;
-  border: 2.5px solid var(--ink);
+  border: var(--fallback-brand-border, 2.5px solid var(--ink));
   border-radius: 49% 52% 48% 53%;
   position: relative;
   display: inline-grid;
@@ -107,9 +107,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   content: "";
   position: absolute;
   inset: 3px 4px 4px 3px;
-  border: 1px solid rgba(37,35,31,.45);
+  border: var(--fallback-brand-inner-border, 1px solid rgba(37,35,31,.45));
   border-radius: 54% 45% 51% 47%;
   transform: rotate(7deg);
+  display: var(--fallback-brand-display, block);
 }
 .brand-mark::after {
   content: "";
@@ -119,17 +120,19 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   right: -9px;
   bottom: 1px;
   border-radius: 999px;
-  background: var(--ink);
+  background: var(--fallback-brand-handle, var(--ink));
   transform: rotate(43deg);
   box-shadow: 0 2px 0 rgba(37,35,31,.2);
+  display: var(--fallback-brand-display, block);
 }
 .brand-mark span {
   width: 10px;
   height: 10px;
   border-radius: 46% 55% 49% 51%;
-  border: 1.8px solid var(--ink);
+  border: var(--fallback-brand-center-border, 1.8px solid var(--ink));
   transform: rotate(8deg);
   opacity: .72;
+  display: var(--fallback-brand-display, block);
 }
 .brand-mark.small { width: 28px; height: 28px; }
 .brand-mark.small span { width: 8px; height: 8px; }
@@ -138,7 +141,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   width: 27px;
   height: 8px;
   margin-left: -4px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: var(--fallback-brand-scribble-border, 2px solid var(--ink));
   border-radius: 50%;
   transform: rotate(-5deg) translateY(4px);
   opacity: .55;
@@ -200,8 +203,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   top: -8px;
   left: 50%;
   transform: translateX(-50%) rotate(2deg);
-  background: rgba(233,220,185,.78);
-  border: 1px solid rgba(128,105,72,.18);
+  background-color: var(--fallback-tape-bg, rgba(233,220,185,.78));
+  border: var(--fallback-tape-border, 1px solid rgba(128,105,72,.18));
+  pointer-events: none;
 }
 .sidebar-note strong { display: block; font-size: .92rem; margin: 6px 0; }
 .sidebar-note p { margin: 0; color: var(--ink-soft); font-size: .78rem; line-height: 1.45; }
@@ -256,7 +260,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   min-width: 120px;
   height: 9px;
   margin-top: -3px;
-  border-bottom: 2px solid rgba(37,35,31,.48);
+  border-bottom: var(--fallback-underline-border, 2px solid rgba(37,35,31,.48));
   border-radius: 50%;
   transform: rotate(-1.4deg);
 }
@@ -343,10 +347,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   top: -10px;
   left: 50%;
   transform: translateX(-50%) rotate(-1deg);
-  background: rgba(231,218,181,.76);
-  border: 1px solid rgba(128,105,72,.16);
-  box-shadow: 0 1px 2px rgba(79,65,46,.08);
+  background-color: var(--fallback-tape-bg, rgba(231,218,181,.76));
+  border: var(--fallback-tape-border, 1px solid rgba(128,105,72,.16));
+  box-shadow: var(--fallback-tape-shadow, 0 1px 2px rgba(79,65,46,.08));
   z-index: 2;
+  pointer-events: none;
 }
 
 .alert-hero {
@@ -391,13 +396,13 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .hero-ring {
   width: 130px;
   aspect-ratio: 1;
-  border: 2px solid var(--ink);
+  border: var(--fallback-ring-border, 2px solid var(--ink));
   border-radius: 49% 53% 47% 52%;
   display: grid;
   place-content: center;
   text-align: center;
   flex-shrink: 0;
-  background: var(--green);
+  background-color: var(--green);
   transform: rotate(3deg);
   position: relative;
 }
@@ -405,9 +410,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   content: "";
   position: absolute;
   inset: 8px 6px 7px 8px;
-  border: 1.3px solid rgba(37,35,31,.5);
+  border: var(--fallback-ring-inner, 1.3px solid rgba(37,35,31,.5));
   border-radius: 53% 47% 52% 48%;
   transform: rotate(-6deg);
+  display: var(--fallback-brand-display, block);
 }
 .hero-ring span { font-size: 2rem; font-weight: 900; line-height: 1; z-index: 1; }
 .hero-ring small { color: var(--ink-soft); margin-top: 4px; z-index: 1; font-family: var(--hand); }
@@ -439,9 +445,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   height: 12px;
   top: -6px;
   right: 18px;
-  background: rgba(240,228,194,.82);
-  border: 1px solid rgba(128,105,72,.15);
+  background-color: var(--fallback-tape-bg, rgba(240,228,194,.82));
+  border: var(--fallback-tape-border, 1px solid rgba(128,105,72,.15));
   transform: rotate(5deg);
+  pointer-events: none;
 }
 .insight-icon {
   width: 36px;
@@ -519,11 +526,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   height: 42px;
   top: -12px;
   left: 34px;
-  border: 2px solid var(--ink-soft);
-  border-bottom: 0;
-  border-radius: 9px 9px 2px 2px;
+  border: var(--fallback-clip-border, 2px solid var(--ink-soft));
+  border-bottom: var(--fallback-clip-border-bottom, 0);
+  border-radius: var(--fallback-clip-radius, 9px 9px 2px 2px);
   transform: rotate(-6deg);
   opacity: .7;
+  pointer-events: none;
 }
 .section-heading {
   display: flex;
@@ -787,8 +795,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   top: -9px;
   left: 50%;
   transform: translateX(-50%) rotate(2deg);
-  background: rgba(233,220,185,.82);
-  border: 1px solid rgba(128,105,72,.17);
+  background-color: var(--fallback-tape-bg, rgba(233,220,185,.82));
+  border: var(--fallback-tape-border, 1px solid rgba(128,105,72,.17));
+  pointer-events: none;
 }
 .modal { padding: 28px; position: relative; }
 .modal h2, .onboarding-card h2 {

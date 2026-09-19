@@ -1,0 +1,313 @@
+/* ==========================================================================
+   LOOPA — SISTEMA DE ASSETS VISUAIS & IDENTIDADE
+   
+   Arquitetura de desacoplamento:
+   1. CONTEÚDO: HTML & JS (textos, dados dinâmicos, números)
+   2. ESTRUTURA: styles.css (layout, flexbox/grid, responsividade mobile)
+   3. IDENTIDADE: assets.css + /assets/* (custom properties, imagens, fallbacks)
+
+   Para ativar ou substituir um asset:
+   Aponte a variável correspondente para a URL do arquivo em /assets/...
+   Exemplo:
+   --asset-tape-default: url("/assets/tape/fita-adesiva-hero.webp");
+   --fallback-tape-bg: transparent;
+   --fallback-tape-border: none;
+   ========================================================================== */
+
+:root {
+  /* ========================================================================
+     1. BRAND (Logo, Símbolo, Marca)
+     ======================================================================== */
+  --asset-brand-logo: none;             /* url("/assets/brand/logo.svg") */
+  --asset-brand-mark: none;             /* url("/assets/brand/mark.svg") */
+  --asset-brand-scribble: none;         /* url("/assets/brand/brand-scribble.svg") */
+
+  /* Fallbacks da Marca (desativados quando o asset estiver ativo) */
+  --fallback-brand-border: 2.5px solid var(--ink, #25231f);
+  --fallback-brand-inner-border: 1px solid rgba(37,35,31,.45);
+  --fallback-brand-center-border: 1.8px solid var(--ink, #25231f);
+  --fallback-brand-handle: var(--ink, #25231f);
+  --fallback-brand-display: block;
+  --fallback-brand-scribble-border: 2px solid var(--ink, #25231f);
+
+  /* ========================================================================
+     2. TAPE (Fita Adesiva / Washi Tape)
+     ======================================================================== */
+  --asset-tape-default: none;          /* url("/assets/tape/tape-default.webp") */
+  --asset-tape-small: none;            /* url("/assets/tape/tape-small.webp") */
+  --asset-tape-angled: none;           /* url("/assets/tape/tape-angled.webp") */
+  --asset-tape-corner: none;           /* url("/assets/tape/tape-corner.webp") */
+
+  /* Fallbacks de Fita */
+  --fallback-tape-bg: rgba(231,218,181,.76);
+  --fallback-tape-border: 1px solid rgba(128,105,72,.16);
+  --fallback-tape-shadow: 0 1px 2px rgba(79,65,46,.08);
+
+  /* ========================================================================
+     3. CLIPS (Clipes de Papel e Fixadores)
+     ======================================================================== */
+  --asset-clip-paperclip: none;        /* url("/assets/clips/paperclip.webp") */
+  --asset-clip-binder: none;           /* url("/assets/clips/binder-clip.webp") */
+
+  /* Fallbacks de Clips */
+  --fallback-clip-border: 2px solid var(--ink-soft, #4d4a44);
+  --fallback-clip-border-bottom: 0;
+  --fallback-clip-radius: 9px 9px 2px 2px;
+  --fallback-clip-display: block;
+
+  /* ========================================================================
+     4. POST-ITS & NOTAS (Texturas / Molduras de Papel)
+     ======================================================================== */
+  --asset-note-yellow: none;           /* url("/assets/notes/note-yellow.webp") */
+  --asset-note-blue: none;             /* url("/assets/notes/note-blue.webp") */
+  --asset-note-green: none;            /* url("/assets/notes/note-green.webp") */
+  --asset-note-pink: none;             /* url("/assets/notes/note-pink.webp") */
+  --asset-note-scrap: none;            /* url("/assets/notes/paper-scrap.webp") */
+  --asset-paper-card: none;            /* url("/assets/notes/paper-card.webp") */
+
+  /* ========================================================================
+     5. PAPEL & TEXTURAS (Folhas, Caderno, Pautas)
+     ======================================================================== */
+  --asset-paper-texture: none;         /* url("/assets/paper/paper-texture.webp") */
+  --asset-paper-notebook: none;        /* url("/assets/paper/notebook-sheet.webp") */
+  --asset-paper-grid: none;            /* url("/assets/paper/grid-paper.webp") */
+
+  /* ========================================================================
+     6. HIGHLIGHTS & SUBLINHADOS (Traços, Marca-texto)
+     ======================================================================== */
+  --asset-highlight-underline: none;   /* url("/assets/highlights/title-underline.svg") */
+  --asset-highlight-marker: none;      /* url("/assets/highlights/marker-stroke.svg") */
+
+  /* Fallbacks de Sublinhado */
+  --fallback-underline-border: 2px solid rgba(37,35,31,.48);
+
+  /* ========================================================================
+     7. DOODLES & RABISCOS (Círculos, Flechas, Cantos)
+     ======================================================================== */
+  --asset-doodle-ring: none;           /* url("/assets/doodles/counter-ring.svg") */
+  --asset-doodle-arrow: none;          /* url("/assets/doodles/arrow.svg") */
+  --asset-doodle-corner-scribble: none;/* url("/assets/doodles/scrap-scribble.svg") */
+  --asset-doodle-tick: none;           /* url("/assets/doodles/row-tick.svg") */
+  --asset-doodle-badge: none;          /* url("/assets/doodles/service-badge.svg") */
+
+  /* Fallbacks de Rabiscos */
+  --fallback-ring-border: 2px solid var(--ink, #25231f);
+  --fallback-ring-inner: 1.3px solid rgba(37,35,31,.5);
+  --fallback-corner-scribble-border: 1.5px solid rgba(37,35,31,.25);
+  --fallback-tick-border: 2px solid rgba(37,35,31,.28);
+
+  /* ========================================================================
+     8. ÍCONES (Navegação, Ações, Alertas)
+     ======================================================================== */
+  --asset-icon-home: none;             /* url("/assets/icons/nav-home.svg") */
+  --asset-icon-calendar: none;         /* url("/assets/icons/nav-calendar.svg") */
+  --asset-icon-subscriptions: none;    /* url("/assets/icons/nav-subscriptions.svg") */
+  --asset-icon-economy: none;          /* url("/assets/icons/nav-economy.svg") */
+  --asset-icon-alert: none;            /* url("/assets/icons/alert.svg") */
+  --asset-icon-trend-up: none;         /* url("/assets/icons/trend-up.svg") */
+  --asset-icon-plus: none;             /* url("/assets/icons/plus.svg") */
+  --asset-icon-close: none;            /* url("/assets/icons/close.svg") */
+
+  /* Modo de exibição dos ícones (oculta o caractere unicode quando ativo) */
+  --asset-icon-mask-display: none;
+}
+
+/* ==========================================================================
+   CLASSES UTILITÁRIAS & COMPONENTES VISUAIS REUTILIZÁVEIS
+   ========================================================================== */
+
+/* Elemento genérico de asset (imagem ou vetor inserido na árvore) */
+.asset-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Fita Adesiva como elemento standalone */
+.asset-tape {
+  position: absolute;
+  width: 72px;
+  height: 18px;
+  background-image: var(--asset-tape-default);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.asset-tape.small {
+  width: 44px;
+  height: 14px;
+  background-image: var(--asset-tape-small, var(--asset-tape-default));
+}
+
+/* Clipes de papel standalone */
+.asset-clip {
+  position: absolute;
+  width: 22px;
+  height: 44px;
+  background-image: var(--asset-clip-paperclip);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* Rabiscos / Doodles reutilizáveis */
+.asset-doodle {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+}
+
+/* Ícones de Navegação / Ações com suporte a SVG e Fallback de texto */
+.asset-icon-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  position: relative;
+}
+
+.asset-icon-slot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--asset-icon-target, none);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: var(--asset-icon-mask-display);
+}
+
+.asset-icon-slot[data-icon="home"] { --asset-icon-target: var(--asset-icon-home); }
+.asset-icon-slot[data-icon="calendar"] { --asset-icon-target: var(--asset-icon-calendar); }
+.asset-icon-slot[data-icon="subscriptions"] { --asset-icon-target: var(--asset-icon-subscriptions); }
+.asset-icon-slot[data-icon="economy"] { --asset-icon-target: var(--asset-icon-economy); }
+.asset-icon-slot[data-icon="alert"] { --asset-icon-target: var(--asset-icon-alert); }
+.asset-icon-slot[data-icon="trend-up"] { --asset-icon-target: var(--asset-icon-trend-up); }
+.asset-icon-slot[data-icon="plus"] { --asset-icon-target: var(--asset-icon-plus); }
+.asset-icon-slot[data-icon="close"] { --asset-icon-target: var(--asset-icon-close); }
+
+/* ==========================================================================
+   INTEGRAÇÃO COM OS ELEMENTOS EXISTENTES DA INTERFACE
+   (Conexão transparente com os seletores de styles.css)
+   ========================================================================== */
+
+/* Marca / Logo */
+.brand-mark {
+  background-image: var(--asset-brand-mark);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.brand-scribble {
+  background-image: var(--asset-brand-scribble);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Sublinhado dos títulos de seção */
+.title-underline {
+  background-image: var(--asset-highlight-underline);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Fita adesiva em cartões (.taped) */
+.taped::before {
+  background-image: var(--asset-tape-default);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Fita adesiva na nota lateral */
+.sidebar-note::before {
+  background-image: var(--asset-tape-small, var(--asset-tape-default));
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Fita adesiva nos cards de alerta rápido */
+.note-card::before {
+  background-image: var(--asset-tape-small, var(--asset-tape-default));
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Fita adesiva nos modais */
+.paper-modal::before {
+  background-image: var(--asset-tape-default);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Clipes em painéis (.clipped) */
+.clipped::before {
+  background-image: var(--asset-clip-paperclip);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Círculo do contador hero (.hero-ring) */
+.hero-ring {
+  background-image: var(--asset-doodle-ring);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Post-its por cor */
+.sticky-yellow {
+  background-image: var(--asset-note-yellow);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.sticky-blue {
+  background-image: var(--asset-note-blue);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.sticky-green {
+  background-image: var(--asset-note-green);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.sticky-pink {
+  background-image: var(--asset-note-pink);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* Retalhos de papel da grade de métricas */
+.paper-scrap {
+  background-image: var(--asset-note-scrap);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* Folha pautada de caderno */
+.notebook-sheet {
+  background-image: var(--asset-paper-notebook);
+  background-size: auto;
+  background-repeat: repeat;
+}

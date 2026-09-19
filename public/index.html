@@ -8,6 +8,7 @@
   <title>Loopa — seu radar de assinaturas</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="stylesheet" href="/assets.css" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -19,10 +20,10 @@
       </a>
 
       <nav class="nav-list">
-        <a class="nav-item nav-link active" href="#inicio" data-screen="inicio"><span>⌂</span> Visão geral</a>
-        <a class="nav-item nav-link" href="#calendario" data-screen="calendario"><span>◫</span> Calendário</a>
-        <a class="nav-item nav-link" href="#assinaturas" data-screen="assinaturas"><span>↻</span> Assinaturas</a>
-        <a class="nav-item nav-link" href="#economia" data-screen="economia"><span>◇</span> Economia</a>
+        <a class="nav-item nav-link active" href="#inicio" data-screen="inicio"><span class="asset-icon-slot" data-icon="home" aria-hidden="true">⌂</span> Visão geral</a>
+        <a class="nav-item nav-link" href="#calendario" data-screen="calendario"><span class="asset-icon-slot" data-icon="calendar" aria-hidden="true">◫</span> Calendário</a>
+        <a class="nav-item nav-link" href="#assinaturas" data-screen="assinaturas"><span class="asset-icon-slot" data-icon="subscriptions" aria-hidden="true">↻</span> Assinaturas</a>
+        <a class="nav-item nav-link" href="#economia" data-screen="economia"><span class="asset-icon-slot" data-icon="economy" aria-hidden="true">◇</span> Economia</a>
       </nav>
 
       <div class="sidebar-note">
@@ -71,7 +72,7 @@
 
             <div class="quick-alerts">
               <article class="insight-card note-card sticky-yellow danger">
-                <div class="insight-icon">!</div>
+                <div class="insight-icon asset-icon-slot" data-icon="alert">!</div>
                 <div class="insight-text">
                   <span class="eyebrow">Atenção</span>
                   <strong>Canva Pro termina em 2 dias.</strong>
@@ -80,7 +81,7 @@
               </article>
 
               <article class="insight-card note-card sticky-blue">
-                <div class="insight-icon">↑</div>
+                <div class="insight-icon asset-icon-slot" data-icon="trend-up">↑</div>
                 <div class="insight-text">
                   <span class="eyebrow">Mudança</span>
                   <strong>Disney+ aumentou de preço.</strong>
@@ -258,10 +259,10 @@
   </div>
 
   <nav class="mobile-nav" aria-label="Navegação móvel">
-    <a class="nav-link active" href="#inicio" data-screen="inicio"><span class="nav-glyph">⌂</span><span>Início</span></a>
-    <a class="nav-link" href="#calendario" data-screen="calendario"><span class="nav-glyph">◫</span><span>Calendário</span></a>
-    <a class="nav-link" href="#assinaturas" data-screen="assinaturas"><span class="nav-glyph">↻</span><span>Assinaturas</span></a>
-    <a class="nav-link" href="#economia" data-screen="economia"><span class="nav-glyph">◇</span><span>Economia</span></a>
+    <a class="nav-link active" href="#inicio" data-screen="inicio"><span class="nav-glyph asset-icon-slot" data-icon="home" aria-hidden="true">⌂</span><span>Início</span></a>
+    <a class="nav-link" href="#calendario" data-screen="calendario"><span class="nav-glyph asset-icon-slot" data-icon="calendar" aria-hidden="true">◫</span><span>Calendário</span></a>
+    <a class="nav-link" href="#assinaturas" data-screen="assinaturas"><span class="nav-glyph asset-icon-slot" data-icon="subscriptions" aria-hidden="true">↻</span><span>Assinaturas</span></a>
+    <a class="nav-link" href="#economia" data-screen="economia"><span class="nav-glyph asset-icon-slot" data-icon="economy" aria-hidden="true">◇</span><span>Economia</span></a>
   </nav>
 
   <div class="modal-backdrop hidden" id="addModal" role="dialog" aria-modal="true" aria-labelledby="addTitle">

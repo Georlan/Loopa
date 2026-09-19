@@ -27,13 +27,25 @@ Os valores e serviços iniciais são **dados de demonstração**, não uma tabel
 ```text
 .
 ├── docs/
+│   ├── ASSETS.md
 │   └── PRODUCT.md
 ├── examples/
 │   └── fatura-demo.csv
 ├── public/
+│   ├── assets/
+│   │   ├── brand/
+│   │   ├── clips/
+│   │   ├── decorations/
+│   │   ├── doodles/
+│   │   ├── highlights/
+│   │   ├── icons/
+│   │   ├── notes/
+│   │   ├── paper/
+│   │   └── tape/
 │   ├── _headers
 │   ├── _redirects
 │   ├── app.js
+│   ├── assets.css
 │   ├── favicon.svg
 │   ├── index.html
 │   ├── manifest.webmanifest
