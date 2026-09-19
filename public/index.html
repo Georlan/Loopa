@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b1020" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#07101d" />
   <meta name="description" content="Loopa organiza, antecipa e revela seus gastos recorrentes." />
   <title>Loopa — seu radar de assinaturas</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -13,16 +13,16 @@
 <body>
   <div class="app-shell">
     <aside class="sidebar" aria-label="Navegação principal">
-      <a class="brand" href="#inicio" aria-label="Loopa, início">
+      <a class="brand nav-link" href="#inicio" data-screen="inicio" aria-label="Loopa, início">
         <span class="brand-mark" aria-hidden="true"><span></span></span>
         <span>Loopa</span>
       </a>
 
       <nav class="nav-list">
-        <a class="nav-item active" href="#inicio" data-section="inicio"><span>⌂</span> Visão geral</a>
-        <a class="nav-item" href="#calendario" data-section="calendario"><span>◫</span> Calendário</a>
-        <a class="nav-item" href="#assinaturas" data-section="assinaturas"><span>↻</span> Assinaturas</a>
-        <a class="nav-item" href="#economia" data-section="economia"><span>◇</span> Economia</a>
+        <a class="nav-item nav-link active" href="#inicio" data-screen="inicio"><span>⌂</span> Visão geral</a>
+        <a class="nav-item nav-link" href="#calendario" data-screen="calendario"><span>◫</span> Calendário</a>
+        <a class="nav-item nav-link" href="#assinaturas" data-screen="assinaturas"><span>↻</span> Assinaturas</a>
+        <a class="nav-item nav-link" href="#economia" data-screen="economia"><span>◇</span> Economia</a>
       </nav>
 
       <div class="sidebar-note">
@@ -32,152 +32,236 @@
       </div>
     </aside>
 
-    <main class="main-content">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">sábado, 19 de setembro</p>
-          <h1>Bom dia. Veja o que está prestes a acontecer.</h1>
+    <main class="app-main">
+      <section class="app-screen active" id="inicio" data-app-screen="inicio">
+        <div class="screen-scroll home-scroll">
+          <header class="screen-topbar home-topbar">
+            <div class="mobile-brand-row">
+              <a class="mobile-brand nav-link" href="#inicio" data-screen="inicio" aria-label="Loopa, início">
+                <span class="brand-mark small" aria-hidden="true"><span></span></span>
+                <strong>Loopa</strong>
+              </a>
+              <button class="icon-button" data-modal-open="addModal" aria-label="Nova assinatura">+</button>
+            </div>
+            <div class="headline-row">
+              <div>
+                <p class="eyebrow" id="todayLabel">sábado, 19 de setembro</p>
+                <h1>Veja o que está prestes a acontecer.</h1>
+              </div>
+              <div class="desktop-actions">
+                <button class="button ghost" data-modal-open="importModal">Importar fatura</button>
+                <button class="button primary" data-modal-open="addModal">+ Nova assinatura</button>
+              </div>
+            </div>
+          </header>
+
+          <div class="home-content">
+            <article class="alert-hero">
+              <div class="hero-copy-wrap">
+                <span class="status-pill warning">Próximos 7 dias</span>
+                <p class="hero-kicker">Saídas recorrentes previstas</p>
+                <div class="hero-value" id="nextSevenTotal">R$ 187,60</div>
+                <p class="hero-copy">3 cobranças estão chegando. A maior delas vence em 4 dias.</p>
+              </div>
+              <div class="hero-ring" aria-label="Cobranças próximas">
+                <span>3</span>
+                <small>próximas</small>
+              </div>
+            </article>
+
+            <div class="quick-alerts">
+              <article class="insight-card danger">
+                <div class="insight-icon">!</div>
+                <div class="insight-text">
+                  <span class="eyebrow">Atenção</span>
+                  <strong>Canva Pro termina em 2 dias.</strong>
+                  <p>Depois: R$ 34,90/mês.</p>
+                </div>
+              </article>
+
+              <article class="insight-card">
+                <div class="insight-icon">↑</div>
+                <div class="insight-text">
+                  <span class="eyebrow">Mudança</span>
+                  <strong>Disney+ aumentou de preço.</strong>
+                  <p>R$ 43,90 → R$ 46,90.</p>
+                </div>
+              </article>
+            </div>
+
+            <div class="metrics-grid" aria-label="Resumo financeiro">
+              <article class="metric-card">
+                <span class="eyebrow">Por mês</span>
+                <strong id="monthlyTotal">R$ 438,20</strong>
+                <p>recorrências ativas</p>
+              </article>
+              <article class="metric-card">
+                <span class="eyebrow">Por ano</span>
+                <strong id="yearlyTotal">R$ 5.258,40</strong>
+                <p>projeção atual</p>
+              </article>
+              <article class="metric-card highlight">
+                <span class="eyebrow">Desperdício</span>
+                <strong id="wasteTotal">R$ 79,80/mês</strong>
+                <p>2 serviços em atenção</p>
+              </article>
+              <article class="metric-card">
+                <span class="eyebrow">Economia</span>
+                <strong>R$ 214,70</strong>
+                <p>acumulada</p>
+              </article>
+            </div>
+          </div>
         </div>
-        <div class="topbar-actions">
-          <button class="button ghost" id="importButton">Importar fatura</button>
-          <button class="button primary" id="addButton">+ Nova assinatura</button>
-        </div>
-      </header>
-
-      <section id="inicio" class="section hero-grid">
-        <article class="alert-hero">
-          <div>
-            <span class="status-pill warning">Próximos 7 dias</span>
-            <p class="hero-kicker">Saídas recorrentes previstas</p>
-            <div class="hero-value" id="nextSevenTotal">R$ 187,60</div>
-            <p class="hero-copy">3 cobranças estão chegando. A maior delas vence em 4 dias.</p>
-          </div>
-          <div class="hero-ring" aria-label="Cobranças próximas">
-            <span>3</span>
-            <small>próximas</small>
-          </div>
-        </article>
-
-        <article class="insight-card danger">
-          <div class="insight-icon">!</div>
-          <div>
-            <span class="eyebrow">Atenção</span>
-            <strong>Seu teste do Canva Pro termina em 2 dias.</strong>
-            <p>Depois disso: R$ 34,90/mês.</p>
-          </div>
-        </article>
-
-        <article class="insight-card">
-          <div class="insight-icon">↑</div>
-          <div>
-            <span class="eyebrow">Mudança detectada</span>
-            <strong>Disney+ aumentou de preço.</strong>
-            <p>R$ 43,90 → R$ 46,90 neste ciclo.</p>
-          </div>
-        </article>
       </section>
 
-      <section class="section metrics-grid" aria-label="Resumo financeiro">
-        <article class="metric-card">
-          <span class="eyebrow">Por mês</span>
-          <strong id="monthlyTotal">R$ 438,20</strong>
-          <p>em recorrências ativas</p>
-        </article>
-        <article class="metric-card">
-          <span class="eyebrow">Por ano</span>
-          <strong id="yearlyTotal">R$ 5.258,40</strong>
-          <p>projeção pelo valor atual</p>
-        </article>
-        <article class="metric-card highlight">
-          <span class="eyebrow">Possível desperdício</span>
-          <strong id="wasteTotal">R$ 79,80/mês</strong>
-          <p>2 serviços pedem sua atenção</p>
-        </article>
-        <article class="metric-card">
-          <span class="eyebrow">Economia acumulada</span>
-          <strong>R$ 214,70</strong>
-          <p>desde o início do acompanhamento</p>
-        </article>
-      </section>
-
-      <section id="calendario" class="section panel">
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow">Calendário financeiro</span>
-            <h2>Setembro</h2>
-          </div>
-          <div class="legend"><span class="dot light"></span> leve <span class="dot medium"></span> média <span class="dot heavy"></span> alta</div>
-        </div>
-        <div class="calendar-weekdays" aria-hidden="true">
-          <span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span>
-        </div>
-        <div class="calendar-grid" id="calendarGrid"></div>
-      </section>
-
-      <section id="assinaturas" class="section panel">
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow">Assinaturas</span>
-            <h2>O que está no seu loop</h2>
-          </div>
-          <button class="text-button" id="sortButton">Ordenar por próxima cobrança ↓</button>
-        </div>
-        <div class="subscriptions-list" id="subscriptionsList"></div>
-      </section>
-
-      <section id="economia" class="section savings-grid">
-        <article class="panel savings-main">
-          <span class="eyebrow">Oportunidades de economia</span>
-          <h2>Você pode estar gastando sem perceber.</h2>
-          <div class="saving-item">
-            <div class="service-icon purple">D+</div>
+      <section class="app-screen" id="calendario" data-app-screen="calendario" hidden>
+        <div class="screen-scroll">
+          <header class="screen-topbar compact">
             <div>
-              <strong>Disney+</strong>
-              <p>Baixo uso estimado nas últimas semanas.</p>
+              <span class="eyebrow">Agenda financeira</span>
+              <h1>Calendário</h1>
+              <p class="screen-subtitle">Veja onde suas cobranças se concentram.</p>
             </div>
-            <div class="saving-number">
-              <strong>R$ 562,80/ano</strong>
-              <span>possível desperdício</span>
-            </div>
-          </div>
-          <div class="saving-item">
-            <div class="service-icon orange">C</div>
-            <div>
-              <strong>Canva Pro</strong>
-              <p>Teste grátis prestes a virar cobrança.</p>
-            </div>
-            <div class="saving-number">
-              <strong>R$ 418,80/ano</strong>
-              <span>se mantido</span>
-            </div>
-          </div>
-        </article>
+            <button class="icon-button mobile-only" data-modal-open="addModal" aria-label="Nova assinatura">+</button>
+          </header>
 
-        <article class="panel unknown-card">
-          <div>
-            <span class="status-pill neutral">Cobrança desconhecida</span>
-            <h3>GOOGLE *SERVICES</h3>
-            <p>Encontramos R$ 14,90 recorrentes, mas ainda não sabemos qual serviço é.</p>
+          <div class="calendar-summary">
+            <div>
+              <span class="eyebrow">Próximos 7 dias</span>
+              <strong id="calendarSevenTotal">R$ 187,60</strong>
+            </div>
+            <div>
+              <span class="eyebrow">Recorrências</span>
+              <strong id="calendarCount">8</strong>
+            </div>
           </div>
-          <div class="unknown-actions">
-            <button class="button secondary">Reconheço</button>
-            <button class="button ghost">Não reconheço</button>
+
+          <article class="panel calendar-panel">
+            <div class="section-heading calendar-heading">
+              <div>
+                <span class="eyebrow">Este mês</span>
+                <h2 id="calendarMonth">Setembro</h2>
+              </div>
+              <div class="legend"><span class="dot light"></span> leve <span class="dot medium"></span> média <span class="dot heavy"></span> alta</div>
+            </div>
+            <div class="calendar-weekdays" aria-hidden="true">
+              <span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+          </article>
+
+          <div class="screen-tip">
+            <strong>Leitura rápida</strong>
+            <span>Dias mais destacados concentram mais dinheiro saindo.</span>
           </div>
-        </article>
+        </div>
       </section>
 
-      <footer class="footer">
-        <span>Loopa MVP · radar de gastos recorrentes</span>
-        <button class="text-button" id="resetDemo">Restaurar demonstração</button>
-      </footer>
+      <section class="app-screen" id="assinaturas" data-app-screen="assinaturas" hidden>
+        <div class="screen-scroll">
+          <header class="screen-topbar compact">
+            <div>
+              <span class="eyebrow">Seus serviços</span>
+              <h1>Assinaturas</h1>
+              <p class="screen-subtitle">Tudo que está no seu loop, em um só lugar.</p>
+            </div>
+            <button class="icon-button mobile-only" data-modal-open="addModal" aria-label="Nova assinatura">+</button>
+          </header>
+
+          <div class="screen-action-row">
+            <button class="button ghost" data-modal-open="importModal">Importar fatura</button>
+            <button class="button primary" data-modal-open="addModal">+ Adicionar</button>
+          </div>
+
+          <article class="panel subscriptions-panel">
+            <div class="section-heading subscription-heading">
+              <div>
+                <span class="eyebrow">Ativas</span>
+                <h2 id="subscriptionCountLabel">8 recorrências</h2>
+              </div>
+              <button class="text-button" id="sortButton">Próxima cobrança ↓</button>
+            </div>
+            <div class="subscriptions-list" id="subscriptionsList"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="app-screen" id="economia" data-app-screen="economia" hidden>
+        <div class="screen-scroll">
+          <header class="screen-topbar compact">
+            <div>
+              <span class="eyebrow">Análise</span>
+              <h1>Economia</h1>
+              <p class="screen-subtitle">Onde a Loopa encontrou dinheiro que merece sua atenção.</p>
+            </div>
+          </header>
+
+          <article class="economy-hero">
+            <span class="eyebrow">Possível economia anual</span>
+            <strong>R$ 981,60</strong>
+            <p>com base nos serviços marcados como pouco usados ou prestes a renovar.</p>
+          </article>
+
+          <article class="panel savings-main">
+            <div class="section-heading">
+              <div>
+                <span class="eyebrow">Oportunidades</span>
+                <h2>Revisar antes de pagar de novo</h2>
+              </div>
+            </div>
+
+            <div class="saving-item">
+              <div class="service-icon purple">D+</div>
+              <div>
+                <strong>Disney+</strong>
+                <p>Baixo uso estimado nas últimas semanas.</p>
+              </div>
+              <div class="saving-number">
+                <strong>R$ 562,80/ano</strong>
+                <span>possível desperdício</span>
+              </div>
+            </div>
+
+            <div class="saving-item">
+              <div class="service-icon orange">C</div>
+              <div>
+                <strong>Canva Pro</strong>
+                <p>Teste grátis prestes a virar cobrança.</p>
+              </div>
+              <div class="saving-number">
+                <strong>R$ 418,80/ano</strong>
+                <span>se mantido</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel unknown-card">
+            <div>
+              <span class="status-pill neutral">Cobrança desconhecida</span>
+              <h3>GOOGLE *SERVICES</h3>
+              <p>Encontramos R$ 14,90 recorrentes, mas ainda não sabemos qual serviço é.</p>
+            </div>
+            <div class="unknown-actions">
+              <button class="button secondary">Reconheço</button>
+              <button class="button ghost">Não reconheço</button>
+            </div>
+          </article>
+
+          <div class="utility-row">
+            <span>Loopa MVP · dados locais</span>
+            <button class="text-button" id="resetDemo">Restaurar demonstração</button>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 
   <nav class="mobile-nav" aria-label="Navegação móvel">
-    <a href="#inicio">⌂<span>Início</span></a>
-    <a href="#calendario">◫<span>Calendário</span></a>
-    <a href="#assinaturas">↻<span>Assinaturas</span></a>
-    <a href="#economia">◇<span>Economia</span></a>
+    <a class="nav-link active" href="#inicio" data-screen="inicio"><span class="nav-glyph">⌂</span><span>Início</span></a>
+    <a class="nav-link" href="#calendario" data-screen="calendario"><span class="nav-glyph">◫</span><span>Calendário</span></a>
+    <a class="nav-link" href="#assinaturas" data-screen="assinaturas"><span class="nav-glyph">↻</span><span>Assinaturas</span></a>
+    <a class="nav-link" href="#economia" data-screen="economia"><span class="nav-glyph">◇</span><span>Economia</span></a>
   </nav>
 
   <div class="modal-backdrop hidden" id="addModal" role="dialog" aria-modal="true" aria-labelledby="addTitle">
