@@ -15,7 +15,7 @@
   --asset-brand-mark: url("/assets/brand/mark.webp");
   --asset-brand-scribble: none;
 
-  /* Fallbacks da Marca (desativados quando os assets oficiais estão em uso) */
+  /* Fallbacks da Marca */
   --fallback-brand-border: none;
   --fallback-brand-inner-border: none;
   --fallback-brand-center-border: none;
@@ -28,8 +28,6 @@
      ======================================================================== */
   --asset-tape-default: url("/assets/tape/tape-default.webp");
   --asset-tape-small: url("/assets/tape/tape-default.webp");
-  --asset-tape-angled: none;
-  --asset-tape-corner: none;
 
   /* Fallbacks de Fita */
   --fallback-tape-bg: transparent;
@@ -40,7 +38,6 @@
      3. CLIPS (Clipes de Papel e Fixadores)
      ======================================================================== */
   --asset-clip-paperclip: url("/assets/clips/paperclip.webp");
-  --asset-clip-binder: none;
 
   /* Fallbacks de Clips */
   --fallback-clip-border: none;
@@ -55,21 +52,20 @@
   --asset-note-blue: url("/assets/notes/note-blue-taped.webp");
   --asset-note-green: url("/assets/notes/note-green-taped.webp");
   --asset-note-pink: url("/assets/notes/note-pink-taped.webp");
-  --asset-note-scrap: none;
-  --asset-paper-card: none;
+  --asset-banner-green: url("/assets/notes/banner-green-taped.webp");
+  --asset-banner-yellow: url("/assets/notes/banner-yellow.webp");
 
   /* ========================================================================
      5. PAPEL & TEXTURAS (Folhas, Caderno, Pautas)
      ======================================================================== */
-  --asset-paper-texture: none;
+  --asset-paper-blank: url("/assets/paper/paper-sheet-blank.webp");
+  --asset-paper-folded: url("/assets/paper/notebook-sheet-folded.webp");
   --asset-paper-notebook: url("/assets/paper/notebook-sheet.webp");
-  --asset-paper-grid: none;
 
   /* ========================================================================
      6. HIGHLIGHTS & SUBLINHADOS (Traços, Marca-texto)
      ======================================================================== */
   --asset-highlight-underline: url("/assets/highlights/title-underline.webp");
-  --asset-highlight-marker: none;
 
   /* Fallbacks de Sublinhado */
   --fallback-underline-border: none;
@@ -77,31 +73,22 @@
   /* ========================================================================
      7. DOODLES & RABISCOS (Círculos, Flechas, Cantos)
      ======================================================================== */
-  --asset-doodle-ring: none;
-  --asset-doodle-arrow: none;
-  --asset-doodle-corner-scribble: none;
-  --asset-doodle-tick: none;
-  --asset-doodle-badge: none;
+  --asset-counter-ring: url("/assets/doodles/counter-ring.webp");
 
   /* Fallbacks de Rabiscos */
-  --fallback-ring-border: 2px solid var(--ink, #25231f);
-  --fallback-ring-inner: 1.3px solid rgba(37,35,31,.5);
-  --fallback-corner-scribble-border: 1.5px solid rgba(37,35,31,.25);
-  --fallback-tick-border: 2px solid rgba(37,35,31,.28);
+  --fallback-ring-border: none;
+  --fallback-ring-inner: none;
+  --fallback-corner-scribble-border: none;
+  --fallback-tick-border: none;
 
   /* ========================================================================
-     8. ÍCONES (Navegação, Ações, Alertas)
+     8. ÍCONES (Navegação, Ações)
      ======================================================================== */
-  --asset-icon-home: none;
-  --asset-icon-calendar: none;
-  --asset-icon-subscriptions: none;
-  --asset-icon-economy: none;
-  --asset-icon-alert: none;
-  --asset-icon-trend-up: none;
-  --asset-icon-plus: none;
-  --asset-icon-close: none;
-
-  --asset-icon-mask-display: none;
+  --asset-nav-home: url("/assets/icons/nav-home.webp");
+  --asset-nav-calendar: url("/assets/icons/nav-calendar.webp");
+  --asset-nav-subscriptions: url("/assets/icons/nav-subscriptions.webp");
+  --asset-nav-economy: url("/assets/icons/nav-economy.webp");
+  --asset-action-plus: url("/assets/icons/action-plus.webp");
 }
 
 /* ==========================================================================
@@ -133,10 +120,65 @@
 }
 
 .brand-scribble {
-  display: none !important; /* Desativa rabisco falso quando a marca real está ativa */
+  display: none !important;
 }
 
-/* --- 2. SUBLINHADO DE TÍTULO --- */
+/* --- 2. ÍCONES DE NAVEGAÇÃO E AÇÕES --- */
+.nav-icon-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 3px;
+  pointer-events: none;
+}
+
+.nav-item .nav-icon-img {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 9px 0 0;
+}
+
+.action-icon-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  pointer-events: none;
+}
+
+.icon-button {
+  display: inline-grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+}
+
+/* --- 3. BOTTOM NAVIGATION --- */
+.mobile-nav a.active {
+  background-color: var(--yellow) !important;
+  border-radius: 6px 8px 5px 7px !important;
+  box-shadow: 0 2px 6px rgba(69,57,43,.10) !important;
+  transform: rotate(-0.6deg) !important;
+}
+
+.mobile-nav a.active::before {
+  display: none !important; /* Remove linha curvada artificial antiga */
+}
+
+.mobile-nav a.active span {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+}
+
+.mobile-nav a span {
+  font-family: var(--ui) !important;
+  font-size: 0.72rem !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* --- 4. SUBLINHADO DE TÍTULO --- */
 .title-underline {
   display: block !important;
   height: 14px !important;
@@ -150,13 +192,12 @@
   opacity: .95;
 }
 
-/* Larguras proporcionais para cada título */
 #inicio .title-underline { width: min(240px, 65%) !important; }
 #calendario .title-underline { width: 125px !important; }
 #assinaturas .title-underline { width: 145px !important; }
 #economia .title-underline { width: 120px !important; }
 
-/* --- 3. FITA ADESIVA (Washi Tape) --- */
+/* --- 5. FITA ADESIVA (Washi Tape) --- */
 .taped::before {
   content: "" !important;
   position: absolute !important;
@@ -217,7 +258,7 @@
   pointer-events: none !important;
 }
 
-/* --- 4. CLIPE DE PAPEL --- */
+/* --- 6. CLIPE DE PAPEL --- */
 .clipped::before {
   content: "" !important;
   position: absolute !important;
@@ -238,11 +279,43 @@
   pointer-events: none !important;
 }
 
-.subscriptions-panel .subscription-heading {
-  padding-left: 44px !important; /* Clipe não cobre 'Ativas' */
+/* --- 7. COUNTER RING (Doodle Real) --- */
+.hero-ring {
+  background-image: var(--asset-counter-ring) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 96px !important;
+  height: 96px !important;
+  display: grid !important;
+  place-content: center !important;
+  text-align: center !important;
+  transform: rotate(2deg) !important;
 }
 
-/* --- 5. POST-ITS REAIS (Amarelo, Azul, Verde, Rosa) --- */
+.hero-ring::after {
+  display: none !important; /* Sem círculo interno simulado por CSS */
+}
+
+.hero-ring span {
+  font-family: var(--ui) !important;
+  font-size: 1.85rem !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  color: var(--ink) !important;
+}
+
+.hero-ring small {
+  font-family: var(--hand) !important;
+  font-size: 0.82rem !important;
+  color: var(--ink-soft) !important;
+  margin-top: 1px !important;
+}
+
+/* --- 8. POST-ITS REAIS (Amarelo, Azul, Verde, Rosa) --- */
 .note-card::before {
   display: none !important;
 }
@@ -269,7 +342,6 @@
   padding: 26px 13px 14px 13px !important;
 }
 
-/* Card de Desperdício na grade de métricas */
 .metric-card.sticky-green {
   background-image: var(--asset-note-green) !important;
   background-size: 100% 100% !important;
@@ -284,7 +356,6 @@
   display: none !important;
 }
 
-/* Card de Cobrança Desconhecida (Post-it Rosa) */
 .unknown-card.sticky-pink {
   background-image: var(--asset-note-pink) !important;
   background-size: 100% 100% !important;
@@ -296,8 +367,106 @@
   padding: 34px 20px 22px 20px !important;
 }
 
-/* --- 6. FOLHA PAUTADA DE CADERNO --- */
-.notebook-sheet {
+.unknown-tag {
+  font-family: var(--hand) !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  color: var(--ink-soft) !important;
+  display: inline-block !important;
+  margin-bottom: 6px !important;
+  padding: 1px 6px !important;
+  border-bottom: 1.5px dashed rgba(37,35,31,.35) !important;
+  transform: rotate(-1deg) !important;
+}
+
+/* --- 9. CALENDÁRIO (Folha sem pauta) --- */
+.calendar-panel, .paper-sheet-blank {
+  background-image: var(--asset-paper-blank) !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 6px 14px rgba(69,57,43,.08)) !important;
+  padding: 22px 14px 20px 18px !important;
+}
+
+.calendar-summary {
+  background-image: var(--asset-banner-yellow) !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 4px 8px rgba(69,57,43,.08)) !important;
+  padding: 16px 20px !important;
+  margin-bottom: 14px !important;
+}
+
+.calendar-grid {
+  border-top: 1px solid rgba(49,45,40,.12) !important;
+  border-left: 1px solid rgba(49,45,40,.12) !important;
+}
+
+.calendar-day {
+  border-right: 1px solid rgba(49,45,40,.12) !important;
+  border-bottom: 1px solid rgba(49,45,40,.12) !important;
+  background: rgba(255,255,255,.38) !important;
+}
+.calendar-day:nth-child(odd) {
+  background: rgba(255,255,255,.52) !important;
+}
+
+/* --- 10. ASSINATURAS (Folha pautada com margem vermelha respeitada) --- */
+.subscriptions-panel {
+  background-image: var(--asset-paper-folded) !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 8px 18px rgba(69,57,43,.08)) !important;
+  /* 56px de padding esquerdo garante: margem vermelha (~42px) | espaço (~14px) | ícone | texto */
+  padding: 22px 14px 24px 56px !important;
+}
+
+.subscriptions-panel .subscription-heading {
+  padding-left: 0 !important;
+}
+
+.subscription-row {
+  border-top: 1px solid rgba(49,45,40,.09) !important; /* Separador suave */
+}
+
+.subscription-row:nth-child(odd)::before {
+  display: none !important; /* Sem rabisco lateral artificial */
+}
+
+/* --- 11. ECONOMIA (Banner Verde) --- */
+.economy-hero.banner-green {
+  background-image: var(--asset-banner-green) !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 6px 14px rgba(69,57,43,.10)) !important;
+  padding: 38px 20px 24px 20px !important;
+  min-height: 160px !important;
+}
+
+.economy-hero::before {
+  display: none !important; /* Sem fita CSS duplicada */
+}
+
+.economy-hero strong {
+  font-family: var(--ui) !important;
+  font-weight: 800 !important;
+  color: var(--ink) !important;
+  font-size: clamp(2rem, 8vw, 2.5rem) !important;
+}
+
+.savings-main {
   background-image: var(--asset-paper-notebook) !important;
   background-size: 100% 100% !important;
   background-repeat: no-repeat !important;
@@ -305,30 +474,12 @@
   border: none !important;
   box-shadow: none !important;
   filter: drop-shadow(0 8px 18px rgba(69,57,43,.08)) !important;
+  padding: 24px 16px 20px 48px !important;
 }
 
-.calendar-panel {
-  padding: 20px 12px 16px 20px !important;
-}
-
-.calendar-day {
-  background: rgba(255,255,255,.50) !important;
-}
-.calendar-day:nth-child(odd) {
-  background: rgba(255,255,255,.62) !important;
-}
-
-.subscriptions-panel {
-  padding: 20px 14px 16px 18px !important;
-}
-
-.savings-main {
-  padding: 24px 16px 18px 20px !important;
-}
-
-/* Scroll seguro em mobile para não cortar o final dos cards */
+/* --- 12. SCROLL SEGURO EM MOBILE --- */
 @media (max-width: 860px) {
   .screen-scroll {
-    padding-bottom: 96px !important;
+    padding-bottom: 116px !important;
   }
 }

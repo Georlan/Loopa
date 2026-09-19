@@ -8,6 +8,9 @@
   <title>Loopa — seu radar de assinaturas</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/assets.css" />
 </head>
@@ -19,10 +22,10 @@
       </a>
 
       <nav class="nav-list">
-        <a class="nav-item nav-link active" href="#inicio" data-screen="inicio"><span class="asset-icon-slot" data-icon="home" aria-hidden="true">⌂</span> Visão geral</a>
-        <a class="nav-item nav-link" href="#calendario" data-screen="calendario"><span class="asset-icon-slot" data-icon="calendar" aria-hidden="true">◫</span> Calendário</a>
-        <a class="nav-item nav-link" href="#assinaturas" data-screen="assinaturas"><span class="asset-icon-slot" data-icon="subscriptions" aria-hidden="true">↻</span> Assinaturas</a>
-        <a class="nav-item nav-link" href="#economia" data-screen="economia"><span class="asset-icon-slot" data-icon="economy" aria-hidden="true">◇</span> Economia</a>
+        <a class="nav-item nav-link active" href="#inicio" data-screen="inicio"><img class="nav-icon-img" src="/assets/icons/nav-home.webp" alt="" width="22" height="22" aria-hidden="true" /> Visão geral</a>
+        <a class="nav-item nav-link" href="#calendario" data-screen="calendario"><img class="nav-icon-img" src="/assets/icons/nav-calendar.webp" alt="" width="22" height="22" aria-hidden="true" /> Calendário</a>
+        <a class="nav-item nav-link" href="#assinaturas" data-screen="assinaturas"><img class="nav-icon-img" src="/assets/icons/nav-subscriptions.webp" alt="" width="22" height="22" aria-hidden="true" /> Assinaturas</a>
+        <a class="nav-item nav-link" href="#economia" data-screen="economia"><img class="nav-icon-img" src="/assets/icons/nav-economy.webp" alt="" width="22" height="22" aria-hidden="true" /> Economia</a>
       </nav>
 
       <div class="sidebar-note">
@@ -41,7 +44,9 @@
                 <img class="brand-mark-img" src="/assets/brand/mark.webp" alt="" width="28" height="28" aria-hidden="true" />
                 <strong>Loopa</strong>
               </a>
-              <button class="icon-button" data-modal-open="addModal" aria-label="Nova assinatura">+</button>
+              <button class="icon-button" data-modal-open="addModal" aria-label="Nova assinatura">
+                <img class="action-icon-img" src="/assets/icons/action-plus.webp" alt="" width="22" height="22" aria-hidden="true" />
+              </button>
             </div>
             <div class="headline-row">
               <div>
@@ -123,7 +128,9 @@
               <h1>Calendário<span class="title-underline" aria-hidden="true"></span></h1>
               <p class="screen-subtitle">Veja onde suas cobranças se concentram.</p>
             </div>
-            <button class="icon-button mobile-only" data-modal-open="addModal" aria-label="Nova assinatura">+</button>
+            <button class="icon-button mobile-only" data-modal-open="addModal" aria-label="Nova assinatura">
+              <img class="action-icon-img" src="/assets/icons/action-plus.webp" alt="" width="22" height="22" aria-hidden="true" />
+            </button>
           </header>
 
           <div class="calendar-summary">
@@ -137,7 +144,7 @@
             </div>
           </div>
 
-          <article class="panel calendar-panel notebook-sheet">
+          <article class="panel calendar-panel paper-sheet-blank">
             <div class="section-heading calendar-heading">
               <div>
                 <span class="eyebrow">Este mês</span>
@@ -166,7 +173,9 @@
               <h1>Assinaturas<span class="title-underline" aria-hidden="true"></span></h1>
               <p class="screen-subtitle">Tudo que está no seu loop, em um só lugar.</p>
             </div>
-            <button class="icon-button mobile-only" data-modal-open="addModal" aria-label="Nova assinatura">+</button>
+            <button class="icon-button mobile-only" data-modal-open="addModal" aria-label="Nova assinatura">
+              <img class="action-icon-img" src="/assets/icons/action-plus.webp" alt="" width="22" height="22" aria-hidden="true" />
+            </button>
           </header>
 
           <div class="screen-action-row">
@@ -197,7 +206,7 @@
             </div>
           </header>
 
-          <article class="economy-hero paper-card taped">
+          <article class="economy-hero paper-card banner-green">
             <span class="eyebrow">Possível economia anual</span>
             <strong>R$ 981,60</strong>
             <p>com base nos serviços marcados como pouco usados ou prestes a renovar.</p>
@@ -238,7 +247,7 @@
 
           <article class="panel unknown-card sticky-pink">
             <div>
-              <span class="status-pill neutral">Cobrança desconhecida</span>
+              <span class="unknown-tag">Cobrança desconhecida</span>
               <h3>GOOGLE *SERVICES</h3>
               <p>Encontramos R$ 14,90 recorrentes, mas ainda não sabemos qual serviço é.</p>
             </div>
@@ -258,10 +267,22 @@
   </div>
 
   <nav class="mobile-nav" aria-label="Navegação móvel">
-    <a class="nav-link active" href="#inicio" data-screen="inicio"><span class="nav-glyph asset-icon-slot" data-icon="home" aria-hidden="true">⌂</span><span>Início</span></a>
-    <a class="nav-link" href="#calendario" data-screen="calendario"><span class="nav-glyph asset-icon-slot" data-icon="calendar" aria-hidden="true">◫</span><span>Calendário</span></a>
-    <a class="nav-link" href="#assinaturas" data-screen="assinaturas"><span class="nav-glyph asset-icon-slot" data-icon="subscriptions" aria-hidden="true">↻</span><span>Assinaturas</span></a>
-    <a class="nav-link" href="#economia" data-screen="economia"><span class="nav-glyph asset-icon-slot" data-icon="economy" aria-hidden="true">◇</span><span>Economia</span></a>
+    <a class="nav-link active" href="#inicio" data-screen="inicio">
+      <img class="nav-icon-img" src="/assets/icons/nav-home.webp" alt="" width="22" height="22" aria-hidden="true" />
+      <span>Início</span>
+    </a>
+    <a class="nav-link" href="#calendario" data-screen="calendario">
+      <img class="nav-icon-img" src="/assets/icons/nav-calendar.webp" alt="" width="22" height="22" aria-hidden="true" />
+      <span>Calendário</span>
+    </a>
+    <a class="nav-link" href="#assinaturas" data-screen="assinaturas">
+      <img class="nav-icon-img" src="/assets/icons/nav-subscriptions.webp" alt="" width="22" height="22" aria-hidden="true" />
+      <span>Assinaturas</span>
+    </a>
+    <a class="nav-link" href="#economia" data-screen="economia">
+      <img class="nav-icon-img" src="/assets/icons/nav-economy.webp" alt="" width="22" height="22" aria-hidden="true" />
+      <span>Economia</span>
+    </a>
   </nav>
 
   <div class="modal-backdrop hidden" id="addModal" role="dialog" aria-modal="true" aria-labelledby="addTitle">
