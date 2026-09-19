@@ -21,71 +21,53 @@ Para garantir manutenibilidade e facilidade de troca de identidade, o projeto se
 
 ---
 
-## 2. Estrutura de Pastas
+## 2. Estrutura de Pastas e Estado Atual dos Arquivos
 
 ```text
 public/assets/
-├── brand/         # Logo, símbolo da Loopa, variantes da marca
-├── icons/         # Ícones de navegação (início, calendário, assinaturas, economia) e ações (+, ×)
-├── paper/         # Texturas de fundo, folhas pautadas, papéis de caderno
-├── notes/         # Post-its e retalhos coloridos (amarelo, azul, verde, rosa)
-├── tape/          # Fitas adesivas / washi tape (padrão, estreita, angulada)
-├── clips/         # Clipes de papel metálicos e fixadores
-├── doodles/       # Círculos de destaque, flechas, rabiscos de canto, carimbos
-├── highlights/    # Sublinhados manuais, traços de marca-texto
-└── decorations/   # Elementos decorativos complementares
+├── brand/
+│   ├── logo.webp (e .png)             # [ATIVO] Logo completo Loopa (ícone + tipografia + traço)
+│   └── mark.webp (e .png)             # [ATIVO] Símbolo lupa/loop isolado
+├── clips/
+│   └── paperclip.webp (e .png)        # [ATIVO] Clipe de papel metálico inclinado
+├── highlights/
+│   └── title-underline.webp (e .png)  # [ATIVO] Sublinhado orgânico em tinta/grafite
+├── tape/
+│   └── tape-default.webp (e .png)     # [ATIVO] Fita adesiva / washi tape horizontal
+├── notes/
+│   ├── note-yellow-taped.webp (e .png)# [DISPONÍVEL] Post-it amarelo recortado com fita
+│   └── note-yellow-original.jpg       # Arquivo original de referência
+├── doodles/                           # Aguardando círculos, flechas e rabiscos
+├── icons/                             # Aguardando ícones de navegação e ações
+├── paper/                             # Aguardando texturas de pauta/papel
+└── decorations/                       # Aguardando carimbos e selos
 ```
 
 ---
 
 ## 3. Catálogo de Tokens e Mapeamento na Interface
 
-| Token CSS | Destino no Layout | Fallback CSS Ativo |
-|---|---|---|
-| `--asset-brand-mark` | Símbolo Loopa no sidebar e topo mobile | Desenho vetorial CSS da lupa/loop |
-| `--asset-brand-scribble` | Rabisco abaixo da marca no topo mobile | Traço curvo em CSS |
-| `--asset-highlight-underline` | Sublinhado abaixo de títulos `h1` | Curva sublinhada com borda orgânica |
-| `--asset-tape-default` | Topo do card Hero (Início e Economia) e Modais | Fita bege semitransparente em CSS |
-| `--asset-tape-small` | Topo dos cards de alerta e nota da sidebar | Fita adesiva reduzida em CSS |
-| `--asset-clip-paperclip` | Fixador no topo da folha de assinaturas | Clipe metálico com bordas arredondadas |
-| `--asset-note-yellow` | Card de alerta "Atenção" / Calendário resumo | Post-it amarelo pastel em CSS |
-| `--asset-note-blue` | Card de alerta "Mudança" / Nota da sidebar | Post-it azul pastel em CSS |
-| `--asset-note-green` | Card de desperdício na grade de métricas | Post-it verde pastel em CSS |
-| `--asset-note-pink` | Card de cobrança desconhecida | Post-it rosa pastel em CSS |
-| `--asset-note-scrap` | Retalhos de papel da grade de 4 métricas | Retalho off-white em CSS |
-| `--asset-paper-notebook` | Folha pautada de fundo (calendário, listas) | Gradientes repetitivos com margem vermelha |
-| `--asset-doodle-ring` | Círculo do contador hero ("3 próximas") | Anéis duplos desenhados com CSS |
-| `--asset-icon-home` | Aba "Visão geral" / "Início" | Glifo unicode `⌂` |
-| `--asset-icon-calendar` | Aba "Calendário" | Glifo unicode `◫` |
-| `--asset-icon-subscriptions` | Aba "Assinaturas" | Glifo unicode `↻` |
-| `--asset-icon-economy` | Aba "Economia" | Glifo unicode `◇` |
-| `--asset-icon-alert` | Ícone de alerta / atenção | Ícone circular com `!` |
-| `--asset-icon-trend-up` | Ícone de aumento de preço | Ícone circular com `↑` |
+| Token CSS | Arquivo Vinculado | Destino no Layout | Status |
+|---|---|---|---|
+| `--asset-brand-logo` | `/assets/brand/logo.webp` | Logo completo (onboarding, cabeçalhos) | **Ativo** |
+| `--asset-brand-mark` | `/assets/brand/mark.webp` | Símbolo Loopa no sidebar e topo mobile | **Ativo** |
+| `--asset-tape-default` | `/assets/tape/tape-default.webp` | Topo do card Hero (Início/Economia) e Modais | **Ativo** |
+| `--asset-clip-paperclip`| `/assets/clips/paperclip.webp` | Fixador no topo da folha de assinaturas | **Ativo** |
+| `--asset-highlight-underline` | `/assets/highlights/title-underline.webp` | Sublinhado abaixo de títulos `h1` | **Ativo** |
+| `--asset-note-yellow-taped` | `/assets/notes/note-yellow-taped.webp` | Post-it amarelo com fita | **Pronto para uso** |
+| `--asset-note-blue` | *Pendente* | Card de alerta "Mudança" / Nota da sidebar | Fallback CSS |
+| `--asset-note-green` | *Pendente* | Card de desperdício na grade de métricas | Fallback CSS |
+| `--asset-note-pink` | *Pendente* | Card de cobrança desconhecida | Fallback CSS |
+| `--asset-note-scrap` | *Pendente* | Retalhos de papel da grade de 4 métricas | Fallback CSS |
+| `--asset-paper-notebook` | *Pendente* | Folha pautada de fundo (calendário, listas) | Fallback CSS |
+| `--asset-doodle-ring` | *Pendente* | Círculo do contador hero ("3 próximas") | Fallback CSS |
+| `--asset-icon-home` | *Pendente* | Aba "Visão geral" / "Início" | Glifo unicode `⌂` |
+| `--asset-icon-calendar`| *Pendente* | Aba "Calendário" | Glifo unicode `◫` |
+| `--asset-icon-subscriptions` | *Pendente* | Aba "Assinaturas" | Glifo unicode `↻` |
+| `--asset-icon-economy` | *Pendente* | Aba "Economia" | Glifo unicode `◇` |
 
 ---
 
-## 4. Como Integrar uma Nova Arte
+## 4. Otimização de Performance Mobile
 
-Quando um novo asset estiver pronto (ex.: uma fita adesiva `fita-hero.webp` salva em `public/assets/tape/`):
-
-1. Salve o arquivo na subpasta apropriada em `public/assets/`.
-2. Em `public/assets.css`, atualize a variável correspondente:
-   ```css
-   :root {
-     --asset-tape-default: url("/assets/tape/fita-hero.webp");
-     --fallback-tape-bg: transparent;
-     --fallback-tape-border: none;
-     --fallback-tape-shadow: none;
-   }
-   ```
-3. A interface adotará a arte imediatamente, preservando alinhamentos, responsividade e textos sem necessidade de refatorar o HTML.
-
----
-
-## 5. Diretrizes de Estilo & Consistência
-
-Todas as artes geradas devem obedecer ao mesmo universo estético:
-- **Técnica:** Desenho manual, tinta preta/grafite com imperfeições sutis.
-- **Paleta:** Tons pastel amigáveis (amarelo manteiga, verde menta suave, azul céu lavado, rosa claro), papel off-white (`#f4efe4`).
-- **Linguagem:** Caderno pessoal de anotações + clareza de produto financeiro. Amigável e adulto, sem infantilização excessiva.
-- **Otimização:** Formatos SVG (para linhas, vetores e ícones) e WebP/PNG com transparência (para texturas e fitas), sempre visando peso reduzido para carregamento ultrarrápido em redes móveis.
+Todos os assets enviados em PNG/JPG de alta resolução foram otimizados e convertidos para **WebP**, mantendo máxima fidelidade visual com peso de 9 KB a 43 KB, garantindo carregamento instantâneo em conexões 4G/3G no celular.
