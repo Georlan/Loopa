@@ -15,13 +15,13 @@
   --asset-brand-mark: url("/assets/brand/mark.webp");
   --asset-brand-scribble: none;
 
-  /* Fallbacks da Marca (desativados porque o asset oficial está ativo) */
+  /* Fallbacks da Marca (desativados quando os assets oficiais estão em uso) */
   --fallback-brand-border: none;
   --fallback-brand-inner-border: none;
   --fallback-brand-center-border: none;
   --fallback-brand-handle: transparent;
   --fallback-brand-display: none;
-  --fallback-brand-scribble-border: 2px solid var(--ink, #25231f);
+  --fallback-brand-scribble-border: none;
 
   /* ========================================================================
      2. TAPE (Fita Adesiva / Washi Tape)
@@ -105,204 +105,230 @@
 }
 
 /* ==========================================================================
-   CLASSES UTILITÁRIAS & COMPONENTES VISUAIS REUTILIZÁVEIS
+   APLICAÇÃO VISUAL NA INTERFACE REAL
    ========================================================================== */
 
-.asset-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+/* --- 1. MARCA LOOPA --- */
+.brand-logo-img {
+  height: 38px;
+  width: auto;
   object-fit: contain;
-  pointer-events: none;
-  user-select: none;
+  display: block;
 }
 
-.asset-tape {
-  position: absolute;
-  width: 72px;
-  height: 18px;
-  background-image: var(--asset-tape-default);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.asset-tape.small {
-  width: 44px;
-  height: 14px;
-  background-image: var(--asset-tape-small, var(--asset-tape-default));
-}
-
-.asset-clip {
-  position: absolute;
-  width: 26px;
-  height: 48px;
-  background-image: var(--asset-clip-paperclip);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  pointer-events: none;
-  z-index: 6;
-}
-
-.asset-doodle {
+.brand-mark-img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
   display: inline-block;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  pointer-events: none;
+  vertical-align: middle;
+  transform: rotate(-3deg);
 }
 
-.asset-icon-slot {
+.mobile-brand {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  position: relative;
-}
-
-.asset-icon-slot::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: var(--asset-icon-target, none);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: var(--asset-icon-mask-display);
-}
-
-.asset-icon-slot[data-icon="home"] { --asset-icon-target: var(--asset-icon-home); }
-.asset-icon-slot[data-icon="calendar"] { --asset-icon-target: var(--asset-icon-calendar); }
-.asset-icon-slot[data-icon="subscriptions"] { --asset-icon-target: var(--asset-icon-subscriptions); }
-.asset-icon-slot[data-icon="economy"] { --asset-icon-target: var(--asset-icon-economy); }
-.asset-icon-slot[data-icon="alert"] { --asset-icon-target: var(--asset-icon-alert); }
-.asset-icon-slot[data-icon="trend-up"] { --asset-icon-target: var(--asset-icon-trend-up); }
-.asset-icon-slot[data-icon="plus"] { --asset-icon-target: var(--asset-icon-plus); }
-.asset-icon-slot[data-icon="close"] { --asset-icon-target: var(--asset-icon-close); }
-
-/* ==========================================================================
-   INTEGRAÇÃO COM OS ELEMENTOS EXISTENTES DA INTERFACE
-   ========================================================================== */
-
-/* Marca / Logo */
-.brand-mark {
-  background-image: var(--asset-brand-mark);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  gap: 10px;
+  font-size: 1.35rem;
 }
 
 .brand-scribble {
-  background-image: var(--asset-brand-scribble);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  display: none !important; /* Desativa rabisco falso quando a marca real está ativa */
 }
 
-/* Sublinhado dos títulos de seção */
+/* --- 2. SUBLINHADO DE TÍTULO --- */
 .title-underline {
-  background-image: var(--asset-highlight-underline);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
+  display: block !important;
+  height: 14px !important;
+  margin-top: 4px !important;
+  background-image: var(--asset-highlight-underline) !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  border-bottom: none !important;
+  border-radius: 0 !important;
+  transform: none !important;
+  opacity: .95;
 }
 
-/* Fita adesiva em cartões (.taped) */
+/* Larguras proporcionais para cada título */
+#inicio .title-underline { width: min(240px, 65%) !important; }
+#calendario .title-underline { width: 125px !important; }
+#assinaturas .title-underline { width: 145px !important; }
+#economia .title-underline { width: 120px !important; }
+
+/* --- 3. FITA ADESIVA (Washi Tape) --- */
 .taped::before {
-  background-image: var(--asset-tape-default);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  content: "" !important;
+  position: absolute !important;
+  width: 108px !important;
+  height: 28px !important;
+  top: -14px !important;
+  left: 50% !important;
+  transform: translateX(-50%) rotate(-1.2deg) !important;
+  background-image: var(--asset-tape-default) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 2px 3px rgba(69,57,43,.16)) !important;
+  z-index: 5 !important;
+  pointer-events: none !important;
 }
 
-/* Fita adesiva na nota lateral */
-.sidebar-note::before {
-  background-image: var(--asset-tape-small, var(--asset-tape-default));
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* Clipes em painéis (.clipped) */
-.clipped::before {
-  background-image: var(--asset-clip-paperclip);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 24px;
-  height: 48px;
-  opacity: 1;
-}
-
-/* Círculo do contador hero (.hero-ring) */
-.hero-ring {
-  background-image: var(--asset-doodle-ring);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* Post-its com fita integrada na arte (desativa fita duplicada em CSS) */
-.sticky-yellow {
-  background-image: var(--asset-note-yellow);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  border: none;
-}
-.sticky-yellow::before { display: none; }
-
-.sticky-blue {
-  background-image: var(--asset-note-blue);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  border: none;
-}
-.sticky-blue::before { display: none; }
-
-.sticky-green {
-  background-image: var(--asset-note-green);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  border: none;
-}
-.sticky-green::before { display: none; }
-
-.sticky-pink {
-  background-image: var(--asset-note-pink);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  border: none;
-}
-.sticky-pink::before { display: none; }
-
-/* Retalhos de papel da grade de métricas */
-.paper-scrap {
-  background-image: var(--asset-note-scrap);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-
-/* Folha pautada de caderno */
-.notebook-sheet {
-  background-image: var(--asset-paper-notebook);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-color: var(--paper-strong);
-  border: none;
-}
-
-/* Fita adesiva nos modais */
 .paper-modal::before {
-  background-image: var(--asset-tape-default);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  content: "" !important;
+  position: absolute !important;
+  width: 105px !important;
+  height: 28px !important;
+  top: -12px !important;
+  left: 50% !important;
+  transform: translateX(-50%) rotate(1deg) !important;
+  background-image: var(--asset-tape-default) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 2px 3px rgba(69,57,43,.14)) !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+
+.sidebar-note::before {
+  content: "" !important;
+  position: absolute !important;
+  width: 86px !important;
+  height: 24px !important;
+  top: -12px !important;
+  left: 50% !important;
+  transform: translateX(-50%) rotate(2deg) !important;
+  background-image: var(--asset-tape-default) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 2px 3px rgba(69,57,43,.12)) !important;
+  z-index: 5 !important;
+  pointer-events: none !important;
+}
+
+/* --- 4. CLIPE DE PAPEL --- */
+.clipped::before {
+  content: "" !important;
+  position: absolute !important;
+  width: 28px !important;
+  height: 54px !important;
+  top: -16px !important;
+  left: 14px !important;
+  background-image: var(--asset-clip-paperclip) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 3px 4px rgba(49,45,40,.20)) !important;
+  opacity: 1 !important;
+  transform: rotate(-3deg) !important;
+  z-index: 6 !important;
+  pointer-events: none !important;
+}
+
+.subscriptions-panel .subscription-heading {
+  padding-left: 44px !important; /* Clipe não cobre 'Ativas' */
+}
+
+/* --- 5. POST-ITS REAIS (Amarelo, Azul, Verde, Rosa) --- */
+.note-card::before {
+  display: none !important;
+}
+
+.note-card.sticky-yellow {
+  background-image: var(--asset-note-yellow) !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 5px 10px rgba(69,57,43,.10)) !important;
+  padding: 26px 13px 14px 13px !important;
+}
+
+.note-card.sticky-blue {
+  background-image: var(--asset-note-blue) !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 5px 10px rgba(69,57,43,.10)) !important;
+  padding: 26px 13px 14px 13px !important;
+}
+
+/* Card de Desperdício na grade de métricas */
+.metric-card.sticky-green {
+  background-image: var(--asset-note-green) !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 5px 10px rgba(69,57,43,.10)) !important;
+  padding: 22px 14px 14px 14px !important;
+}
+.metric-card.sticky-green::after {
+  display: none !important;
+}
+
+/* Card de Cobrança Desconhecida (Post-it Rosa) */
+.unknown-card.sticky-pink {
+  background-image: var(--asset-note-pink) !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 6px 14px rgba(69,57,43,.12)) !important;
+  padding: 34px 20px 22px 20px !important;
+}
+
+/* --- 6. FOLHA PAUTADA DE CADERNO --- */
+.notebook-sheet {
+  background-image: var(--asset-paper-notebook) !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 8px 18px rgba(69,57,43,.08)) !important;
+}
+
+.calendar-panel {
+  padding: 20px 12px 16px 20px !important;
+}
+
+.calendar-day {
+  background: rgba(255,255,255,.50) !important;
+}
+.calendar-day:nth-child(odd) {
+  background: rgba(255,255,255,.62) !important;
+}
+
+.subscriptions-panel {
+  padding: 20px 14px 16px 18px !important;
+}
+
+.savings-main {
+  padding: 24px 16px 18px 20px !important;
+}
+
+/* Scroll seguro em mobile para não cortar o final dos cards */
+@media (max-width: 860px) {
+  .screen-scroll {
+    padding-bottom: 96px !important;
+  }
 }
