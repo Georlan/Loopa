@@ -5,9 +5,6 @@
    1. CONTEÚDO: HTML & JS (textos, dados dinâmicos, números)
    2. ESTRUTURA: styles.css (layout, flexbox/grid, responsividade mobile)
    3. IDENTIDADE: assets.css + /assets/* (custom properties, imagens, fallbacks)
-
-   Para ativar ou substituir um asset:
-   Aponte a variável correspondente para a URL do arquivo em /assets/...
    ========================================================================== */
 
 :root {
@@ -34,7 +31,7 @@
   --asset-tape-angled: none;
   --asset-tape-corner: none;
 
-  /* Fallbacks de Fita (desativados para exibir a textura real) */
+  /* Fallbacks de Fita */
   --fallback-tape-bg: transparent;
   --fallback-tape-border: none;
   --fallback-tape-shadow: none;
@@ -54,11 +51,10 @@
   /* ========================================================================
      4. POST-ITS & NOTAS (Texturas / Molduras de Papel)
      ======================================================================== */
-  --asset-note-yellow: none;
-  --asset-note-yellow-taped: url("/assets/notes/note-yellow-taped.webp");
-  --asset-note-blue: none;
-  --asset-note-green: none;
-  --asset-note-pink: none;
+  --asset-note-yellow: url("/assets/notes/note-yellow-taped.webp");
+  --asset-note-blue: url("/assets/notes/note-blue-taped.webp");
+  --asset-note-green: url("/assets/notes/note-green-taped.webp");
+  --asset-note-pink: url("/assets/notes/note-pink-taped.webp");
   --asset-note-scrap: none;
   --asset-paper-card: none;
 
@@ -66,7 +62,7 @@
      5. PAPEL & TEXTURAS (Folhas, Caderno, Pautas)
      ======================================================================== */
   --asset-paper-texture: none;
-  --asset-paper-notebook: none;
+  --asset-paper-notebook: url("/assets/paper/notebook-sheet.webp");
   --asset-paper-grid: none;
 
   /* ========================================================================
@@ -231,22 +227,6 @@
   background-position: center;
 }
 
-/* Fita adesiva nos cards de alerta rápido */
-.note-card::before {
-  background-image: var(--asset-tape-small, var(--asset-tape-default));
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* Fita adesiva nos modais */
-.paper-modal::before {
-  background-image: var(--asset-tape-default);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 /* Clipes em painéis (.clipped) */
 .clipped::before {
   background-image: var(--asset-clip-paperclip);
@@ -266,30 +246,42 @@
   background-position: center;
 }
 
-/* Post-its por cor */
+/* Post-its com fita integrada na arte (desativa fita duplicada em CSS) */
 .sticky-yellow {
   background-image: var(--asset-note-yellow);
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
 }
+.sticky-yellow::before { display: none; }
 
 .sticky-blue {
   background-image: var(--asset-note-blue);
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
 }
+.sticky-blue::before { display: none; }
 
 .sticky-green {
   background-image: var(--asset-note-green);
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
 }
+.sticky-green::before { display: none; }
 
 .sticky-pink {
   background-image: var(--asset-note-pink);
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
 }
+.sticky-pink::before { display: none; }
 
 /* Retalhos de papel da grade de métricas */
 .paper-scrap {
@@ -301,6 +293,16 @@
 /* Folha pautada de caderno */
 .notebook-sheet {
   background-image: var(--asset-paper-notebook);
-  background-size: auto;
-  background-repeat: repeat;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: var(--paper-strong);
+  border: none;
+}
+
+/* Fita adesiva nos modais */
+.paper-modal::before {
+  background-image: var(--asset-tape-default);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }

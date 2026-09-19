@@ -26,20 +26,23 @@ Para garantir manutenibilidade e facilidade de troca de identidade, o projeto se
 ```text
 public/assets/
 ├── brand/
-│   ├── logo.webp (e .png)             # [ATIVO] Logo completo Loopa (ícone + tipografia + traço)
+│   ├── logo.webp (e .png)             # [ATIVO] Logo completo Loopa
 │   └── mark.webp (e .png)             # [ATIVO] Símbolo lupa/loop isolado
 ├── clips/
-│   └── paperclip.webp (e .png)        # [ATIVO] Clipe de papel metálico inclinado
+│   └── paperclip.webp (e .png)        # [ATIVO] Clipe de papel metálico
 ├── highlights/
-│   └── title-underline.webp (e .png)  # [ATIVO] Sublinhado orgânico em tinta/grafite
+│   └── title-underline.webp (e .png)  # [ATIVO] Sublinhado orgânico em tinta
 ├── tape/
 │   └── tape-default.webp (e .png)     # [ATIVO] Fita adesiva / washi tape horizontal
 ├── notes/
-│   ├── note-yellow-taped.webp (e .png)# [DISPONÍVEL] Post-it amarelo recortado com fita
-│   └── note-yellow-original.jpg       # Arquivo original de referência
+│   ├── note-yellow-taped.webp (e .png)# [ATIVO] Post-it amarelo com fita
+│   ├── note-blue-taped.webp (e .png)  # [ATIVO] Post-it azul com fita
+│   ├── note-green-taped.webp (e .png) # [ATIVO] Post-it verde com fita
+│   └── note-pink-taped.webp (e .png)  # [ATIVO] Post-it rosa com fita
+├── paper/
+│   └── notebook-sheet.webp (e .png)   # [ATIVO] Folha de caderno pautada com margem
 ├── doodles/                           # Aguardando círculos, flechas e rabiscos
 ├── icons/                             # Aguardando ícones de navegação e ações
-├── paper/                             # Aguardando texturas de pauta/papel
 └── decorations/                       # Aguardando carimbos e selos
 ```
 
@@ -54,12 +57,11 @@ public/assets/
 | `--asset-tape-default` | `/assets/tape/tape-default.webp` | Topo do card Hero (Início/Economia) e Modais | **Ativo** |
 | `--asset-clip-paperclip`| `/assets/clips/paperclip.webp` | Fixador no topo da folha de assinaturas | **Ativo** |
 | `--asset-highlight-underline` | `/assets/highlights/title-underline.webp` | Sublinhado abaixo de títulos `h1` | **Ativo** |
-| `--asset-note-yellow-taped` | `/assets/notes/note-yellow-taped.webp` | Post-it amarelo com fita | **Pronto para uso** |
-| `--asset-note-blue` | *Pendente* | Card de alerta "Mudança" / Nota da sidebar | Fallback CSS |
-| `--asset-note-green` | *Pendente* | Card de desperdício na grade de métricas | Fallback CSS |
-| `--asset-note-pink` | *Pendente* | Card de cobrança desconhecida | Fallback CSS |
-| `--asset-note-scrap` | *Pendente* | Retalhos de papel da grade de 4 métricas | Fallback CSS |
-| `--asset-paper-notebook` | *Pendente* | Folha pautada de fundo (calendário, listas) | Fallback CSS |
+| `--asset-note-yellow` | `/assets/notes/note-yellow-taped.webp` | Card de alerta "Atenção" (`.sticky-yellow`) | **Ativo** |
+| `--asset-note-blue` | `/assets/notes/note-blue-taped.webp` | Card de alerta "Mudança" (`.sticky-blue`) | **Ativo** |
+| `--asset-note-green` | `/assets/notes/note-green-taped.webp` | Card de métrica "Desperdício" (`.sticky-green`) | **Ativo** |
+| `--asset-note-pink` | `/assets/notes/note-pink-taped.webp` | Card de cobrança desconhecida (`.sticky-pink`) | **Ativo** |
+| `--asset-paper-notebook` | `/assets/paper/notebook-sheet.webp` | Painel de calendário, assinaturas e economia | **Ativo** |
 | `--asset-doodle-ring` | *Pendente* | Círculo do contador hero ("3 próximas") | Fallback CSS |
 | `--asset-icon-home` | *Pendente* | Aba "Visão geral" / "Início" | Glifo unicode `⌂` |
 | `--asset-icon-calendar`| *Pendente* | Aba "Calendário" | Glifo unicode `◫` |
@@ -70,4 +72,4 @@ public/assets/
 
 ## 4. Otimização de Performance Mobile
 
-Todos os assets enviados em PNG/JPG de alta resolução foram otimizados e convertidos para **WebP**, mantendo máxima fidelidade visual com peso de 9 KB a 43 KB, garantindo carregamento instantâneo em conexões 4G/3G no celular.
+Todos os assets foram otimizados em formatos **PNG recortado** e **WebP ultraotimizado** (30 KB a 50 KB cada), garantindo carregamento instantâneo em conexões móveis.
