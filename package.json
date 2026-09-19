@@ -1,0 +1,12 @@
+{
+  "name": "loopa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Loopa — radar de gastos recorrentes",
+  "scripts": {
+    "build": "node -e \"require('fs').accessSync('public/index.html'); console.log('Loopa static build ready: public/')\""
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
